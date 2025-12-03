@@ -73,6 +73,29 @@
 - 请在提出issue之前先阅读下方的文档，大多数问题的解决方法都会包含在文档中。
 - 本项目是完全免费的，但使用时请遵守：[Apache-2.0 license](https://github.com/Evil0ctal/Douyin_TikTok_Download_API?tab=Apache-2.0-1-ov-file#readme)
 
+## 🚀 本地快速启动（无 Docker）
+
+1. 安装 [Python 3.10+](https://www.python.org/downloads/) 并确保已加入环境变量，建议同时安装 [Git](https://git-scm.com/downloads)。
+2. 克隆并安装依赖：
+   ```bash
+   git clone https://github.com/Evil0ctal/Douyin_TikTok_Download_API.git
+   cd Douyin_TikTok_Download_API
+   python -m venv venv && source venv/bin/activate  # Windows 请使用 venv\\Scripts\\activate
+   pip install -r requirements.txt
+   ```
+3. 配置端口：在 `config.yaml` 中将 `API.Host_IP` 设为 `127.0.0.1`（可选），`API.Host_Port` 默认为 `8000`，避免 Windows 上 80 端口需要管理员权限。
+4. 运行服务：
+   ```bash
+   python start.py
+   ```
+5. 通过浏览器或工具访问下载接口，例如：
+   ```
+   http://127.0.0.1:8000/api/download?url=https://www.tiktok.com/@airdays/video/7569241462139784479
+   ```
+   如需带水印可追加 `&with_watermark=true`。
+
+> 提示：如需提高 TikTok 下载成功率，请按 `crawlers/tiktok/web/config.yaml` 的说明填写 TikTok Web Cookie 后重启。
+
 ## 🔖TikHub.io API
 
 [TikHub.io](https://tikhub.io/?utm_source=github.com/Evil0ctal/Douyin_TikTok_Download_API&utm_medium=marketing_social&utm_campaign=retargeting&utm_content=carousel_ad) 提供超过 700 个端点，可用于从 14+ 个社交媒体平台获取与分析数据 —— 包括视频、用户、评论、商店、商品与趋势等，一站式完成所有数据访问与分析。

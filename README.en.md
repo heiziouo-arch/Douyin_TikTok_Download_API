@@ -53,6 +53,29 @@ _Download prohibited videos, perform data analysis, download without watermark o
 -   Please read the document below before raising an issue. Solutions to most problems will be included in the document.
 -   This project is completely free, but when using it, please comply with:[Apache-2.0 license](https://github.com/Evil0ctal/Douyin_TikTok_Download_API?tab=Apache-2.0-1-ov-file#readme)
 
+## 🚀 Local quick start (no Docker)
+
+1. Install [Python 3.10+](https://www.python.org/downloads/) (add it to `PATH`) and optionally [Git](https://git-scm.com/downloads).
+2. Clone and install dependencies:
+   ```bash
+   git clone https://github.com/Evil0ctal/Douyin_TikTok_Download_API.git
+   cd Douyin_TikTok_Download_API
+   python -m venv venv && source venv/bin/activate  # On Windows use venv\\Scripts\\activate
+   pip install -r requirements.txt
+   ```
+3. Configure port: set `API.Host_IP` to `127.0.0.1` (optional) in `config.yaml`; `API.Host_Port` defaults to `8000` to avoid admin permission issues on Windows when using port 80.
+4. Start the service:
+   ```bash
+   python start.py
+   ```
+5. Open the download endpoint, for example:
+   ```
+   http://127.0.0.1:8000/api/download?url=https://www.tiktok.com/@airdays/video/7569241462139784479
+   ```
+   Add `&with_watermark=true` if you want the watermarked version.
+
+> Tip: To improve TikTok download success rate, follow `crawlers/tiktok/web/config.yaml` to fill in your TikTok Web Cookie, then restart the service.
+
 ## 🔖TikHub.io API
 
 [TikHub.io](https://tikhub.io/?utm_source=github.com/Evil0ctal/Douyin_TikTok_Download_API&utm_medium=marketing_social&utm_campaign=retargeting&utm_content=carousel_ad)Provides more than 700 endpoints that can be used to obtain and analyze data from 14+ social media platforms - including videos, users, comments, stores, products, trends, etc., complete all data access and analysis in one stop.
