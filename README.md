@@ -502,6 +502,18 @@ Web main interface:
 
 ## 📜 Star历史
 
+[//]: # (同步指南)
+
+### 同步到GitHub
+
+如果你在本地修改了配置（例如更新了 Cookie），但在 GitHub 下载 ZIP 仍然是旧版本，通常是因为本地分支的改动还没有推送或合并到远程仓库：
+
+1. **推送到远程分支**：`git push origin <分支名>` 将本地提交推送到 GitHub。
+2. **创建并合并 PR**：在 GitHub 上发起 Pull Request 并合并到默认分支（通常是 `main` 或 `master`）。
+3. **下载对应分支**：如果尚未合并，下载 ZIP 时需要在 GitHub 页面切换到包含改动的分支后再点击 “Download ZIP”。
+
+只有当改动已经推送并合并到远程默认分支后，直接下载仓库 ZIP 才会包含最新代码。
+
 [![Star History Chart](https://api.star-history.com/svg?repos=Evil0ctal/Douyin_TikTok_Download_API&type=Timeline)](https://star-history.com/#Evil0ctal/Douyin_TikTok_Download_API&Timeline)
 
 [Apache-2.0 license](https://github.com/Evil0ctal/Douyin_TikTok_Download_API/blob/Stable/LICENSE)
