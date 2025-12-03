@@ -328,6 +328,27 @@ class TikTokWebCrawler:
         # 对于URL列表
         return await AwemeIdFetcher.get_all_aweme_id(urls)
 
+    async def update_cookie(self, cookie: str):
+        """
+        更新TikTok的Cookie并持久化到配置文件。
+
+        Args:
+            cookie: 新的Cookie值
+        """
+
+        global config
+        service = "tiktok"
+        print('TikTokWebCrawler before update', config["TokenManager"][service]["headers"]["Cookie"])
+        print('TikTokWebCrawler to update', cookie)
+        # 1. 更新内存中的配置（立即生效）
+        config["TokenManager"][service]["headers"]["Cookie"] = cookie
+        print('TikTokWebCrawler cookie updated', config["TokenManager"][service]["headers"]["Cookie"])
+
+        # 2. 写入配置文件（持久化）
+        config_path = f"{path}/config.yaml"
+        with open(config_path, 'w', encoding='utf-8') as file:
+            yaml.dump(config, file, default_flow_style=False, allow_unicode=True, indent=2)
+
     # 获取用户unique_id
     async def get_unique_id(self, url: str):
         return await SecUserIdFetcher.get_uniqueid(url)

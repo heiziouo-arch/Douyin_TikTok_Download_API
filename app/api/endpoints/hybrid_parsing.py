@@ -91,13 +91,12 @@ async def update_cookie_api(request: Request,
                                 router=request.url.path,
                                 data={"message": f"Cookie for {service} updated successfully"})
         elif service == "tiktok":
-            # 这里可以添加TikTok的cookie更新逻辑
-            # from crawlers.tiktok.web.web_crawler import TikTokWebCrawler
-            # tiktok_crawler = TikTokWebCrawler()
-            # await tiktok_crawler.update_cookie(cookie)
+            from crawlers.tiktok.web.web_crawler import TikTokWebCrawler
+            tiktok_crawler = TikTokWebCrawler()
+            await tiktok_crawler.update_cookie(cookie)
             return ResponseModel(code=200,
                                 router=request.url.path,
-                                data={"message": f"Cookie for {service} will be updated (not implemented yet)"})
+                                data={"message": f"Cookie for {service} updated successfully"})
         elif service == "bilibili":
             # 这里可以添加Bilibili的cookie更新逻辑
             # from crawlers.bilibili.web.web_crawler import BilibiliWebCrawler
